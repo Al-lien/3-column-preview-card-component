@@ -1,0 +1,182 @@
+/*import fonts*/
+
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&display=swap');
+
+/*style-guide value*/
+
+:root {
+    /*COLORS - PRIMARY*/
+    --clr-sedans-bg: hsl(31, 77%, 52%);
+    --clr-suvs-bg: hsl(184, 100%, 22%);
+    --clr-luxury-bg: hsl(179, 100%, 13%);
+    /*COLORS - NEUTRAL*/
+    --clr-paragraph-p: hsla(0, 0%, 100%, 0.75);
+    --clr-main-bg: hsl(0, 0%, 95%); /*background, headings, buttons*/
+    --clr-white: hsl(0, 0%, 100%);
+    /* TYPOGRAPHY */
+    --fs-body: 15px;
+    --ff-primary: 'Lexend Deca', sans-serif;;
+    --ff-secondary: 'Big Shoulders Display', cursive;
+    --fw-400: 400;
+    --fw-700: 700;
+}
+
+
+body {
+    /* Body fit 100% of the html*/
+    min-height: 100vh;
+    margin: 0;
+
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-400);
+    background: var(--clr-main-bg);
+
+    /* Center div in body*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+/*Apply typographic values to text*/
+h1 {
+    font-family: var(--ff-secondary);
+    color: var(--clr-main-bg);
+    font-weight: var(--fw-700);
+    font-size: 2.2rem;
+    padding-bottom: 0.6rem;
+}
+
+p {
+    font-family: var(--ff-primary);
+    color: var(--clr-paragraph-p);
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+
+.main {
+    display: grid;
+    width: 830px;/*Set absolute width & height so it doesn`t shrink with the window*/
+    position: absolute;
+
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+#sedans { grid-area: 1 / 1 / 2 / 2; }
+#suvs { grid-area: 1 / 2 / 2 / 3; }
+#luxury { grid-area: 1 / 3 / 2 / 4; }
+
+/*Align the 3 cards vertically*/
+.cards {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2.1rem 2.7rem 2.1rem 2rem;
+}
+
+/*Align paragraph text to the left*/
+.description {
+    padding-top: 1rem;
+    text-align: left;
+    line-height: 1.5rem;
+}
+
+/*Style of the button*/
+.learn_more {
+    background-color: var(--clr-main-bg);
+    border: 2px solid var(--clr-main-bg);
+    border-radius: 50px;
+    padding: 0.8rem 2rem;
+}
+
+/*Set hovering style only in desktop-sized screen*/
+@media only screen and (min-width: 836px){
+    .learn_more:hover
+    {
+        background-color: hsla(0, 0%, 0%, 0);
+        cursor: pointer;
+    }
+
+    .learn_more:hover > #learn_more_sedans {
+        color: white;
+    }
+    .learn_more:hover > #learn_more_suvs {
+        color: white;
+    }
+    .learn_more:hover > #learn_more_luxury {
+        color: white;
+    }
+}   
+
+/*BG color of the 3 buttons */
+.button_text {
+    font-family: var(--clr-paragraph-p);
+}
+
+/*Cards BG color*/
+#sedans {
+    background-color: var(--clr-sedans-bg);
+    border-radius: 10px 0 0 10px;
+}
+
+#suvs {
+    background-color: var(--clr-suvs-bg);
+}
+
+#luxury {
+    background-color: var(--clr-luxury-bg);
+    border-radius: 0 10px 10px 0;
+}
+
+/*Button text color that match the containeur BG*/
+#learn_more_sedans {
+    color: var(--clr-sedans-bg);
+}
+
+#learn_more_suvs {
+    color: var(--clr-suvs-bg);
+}
+
+#learn_more_luxury {
+    color: var(--clr-luxury-bg);
+}
+
+@media only screen and (max-width: 835px) {
+
+    .main {
+        width: 325px;
+        height: auto;
+        padding: 3rem 0;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    p {
+        padding-right: 0.9rem;
+    }
+
+    .cards {
+        padding: 3rem;
+    }
+
+    #sedans {
+    border-radius: 10px 10px 0 0;
+    }
+
+    #luxury {
+    border-radius: 0 0 10px 10px;
+    }
+
+}
+
+
+
+
